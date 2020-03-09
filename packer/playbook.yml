@@ -1,0 +1,11 @@
+---
+    - name: A demo to run ansible in a docker container
+      hosts: all
+      tasks:
+        - name: Copy files to remote host
+          copy:
+            src: dist/
+            dest: /var/www/html
+            owner: www-data
+            group: www-data
+            mode: 0755
