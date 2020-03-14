@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+  labels:
+    app: myapp
+    type: front-end
+spec:
+    replicas: 3
+    selector:
+      matchlabels:
+        type: front-end
+    template:
+        metadata:
+          name: myapp-pod
+          labels:
+            app: myapp
+            type: front-end
+        spec:
+         containers:
+         - name: nginx-containers
+           image: nginx
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: busybox-pod
+  template:
+    metadata:
+      labels:
+        name: busybox-pod
+    spec:
+      containers:
+      - name: busybox-container
+        image: busybox888
+        command:        - sh
+        - "-c"
+        - echo Hello Kubernetes! && sleep 3600master $
+
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: httpd-frontend-pod
+  template:
+    metadata:
+      labels:
+        name: httpd-frontend-pod
+    spec:
+      containers:
+      - name: httpd-container        image: httpd:2.4-alpine

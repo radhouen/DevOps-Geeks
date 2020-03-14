@@ -1,0 +1,40 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  data:
+    game.properties: |-
+      enemies=aliens
+      lives=3
+      enemies.cheat=true
+      enemies.cheat.level=noGoodRotten
+      secret.code.passphrase=UUDDLRLRBABAS
+      secret.code.allowed=true
+      secret.code.lives=30
+    ui.properties: |
+      color.good=purple
+      color.bad=yellow
+      allow.textmode=true
+      how.nice.to.look=fairlyNice
+  kind: ConfigMap
+  metadata:
+    creationTimestamp: "2020-03-11T13:34:37Z"
+    name: game-config
+    namespace: default
+    resourceVersion: "1524284"
+    selfLink: /api/v1/namespaces/default/configmaps/game-config
+    uid: 9a7b2337-2c48-4330-b44f-93d5ae70f039
+- apiVersion: v1
+  data:
+    port: "8080"
+  kind: ConfigMap
+  metadata:
+    creationTimestamp: "2020-03-13T08:47:49Z"
+    name: nginx-config
+    namespace: default
+    resourceVersion: "1713902"
+    selfLink: /api/v1/namespaces/default/configmaps/nginx-config
+    uid: 04428885-4ffa-41e2-a57e-999f02d6ed0d
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

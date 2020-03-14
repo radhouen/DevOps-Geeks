@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: node-Service
+spec:
+    selector:
+        app: node
+    type: NodePort # Service de type port exposé sur chaque node du cluster
+    ports:
+    - port: 80 # Service de type port exposé sur chaque node du cluster
+      targetPort: 80 # Service de type port exposé sur chaque node du cluster
+      nodePort: 31000 # Service de type port exposé sur chaque node du cluster
